@@ -1,0 +1,187 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.DirectoryServices;
+using System.Configuration;
+using System.Diagnostics;
+
+namespace LorettoReports
+{
+    public partial class LorettoReports : System.Web.UI.MasterPage
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                LoadTreeView_Nav();
+               
+            }
+        }
+        private bool AuthenticateGroup(string groupName)
+        {
+            string currentuser2 = string.Empty;
+            if (Page.User.Identity.Name.ToString().Contains(@"\"))
+            {
+                string[] currentuser = Page.User.Identity.Name.ToString().Split(new[] { @"\" }, int.MaxValue, StringSplitOptions.None);
+                currentuser2 = currentuser[1];
+            }
+            else
+            {
+                currentuser2 = Page.User.Identity.Name.ToString();
+            }
+
+         
+            bool GroupMember = false;
+            try
+            {
+                string strDom = ConfigurationManager.AppSettings["FQDN"];
+                System.DirectoryServices.DirectoryEntry entry = new System.DirectoryServices.DirectoryEntry("LDAP://" + strDom);
+                System.DirectoryServices.DirectorySearcher mySearcher = new System.DirectoryServices.DirectorySearcher(entry);
+                mySearcher.Filter = "(&(objectCategory=person)(ObjectClass=user)(sAMAccountName=" + currentuser2 + "))";
+                mySearcher.PageSize = 1000;
+
+                System.DirectoryServices.SearchResult sr = mySearcher.FindOne();
+                System.DirectoryServices.DirectoryEntry de = sr.GetDirectoryEntry();
+                // Session["ADGroups"] = de.Properties["memberOf"].Value.ToString();
+
+                object[] groups = (object[])de.Properties["memberOf"].Value;
+                foreach (object group in groups)
+                {
+                    Debug.WriteLine(group.ToString());
+                    if (group.ToString() == groupName)
+                        GroupMember = true;
+
+                }
+
+                return GroupMember;
+            }
+            catch (DirectoryServicesCOMException e) { Response.Write(e.Message); }
+            return GroupMember;
+        }
+
+        protected void TreeView_Nav_SelectedNodeChanged(object sender, EventArgs e)
+        {
+            if (TreeView_Nav.SelectedNode.Value != string.Empty)
+            {
+                Session["ReportName"] = TreeView_Nav.SelectedNode.Text;
+                Response.Redirect(TreeView_Nav.SelectedNode.Value);
+            }
+        }
+        protected void TreeView_Nav_Unload(object sender, EventArgs e)
+        {
+            new TreeViewState().SaveTreeView(TreeView_Nav, this.GetType().ToString());
+        }
+  
+
+
+        private void LoadTreeView_Nav()
+        {
+            TreeNode treeRoot = new TreeNode();
+            treeRoot.Text = "Loretto Reports";          //"PACE";
+            treeRoot.Value = string.Empty;
+            TreeNode childNode;
+            TreeNode grandChildNode;
+            TreeNode ggChildNode;
+
+            // Pace reports
+            childNode = new TreeNode();
+            childNode.Text = "PACE";
+            childNode.Value = string.Empty;
+
+
+
+            if (AuthenticateGroup(ConfigurationManager.AppSettings["PACE_Emergency_Contact"]))
+            {
+                grandChildNode = new TreeNode();
+                grandChildNode.Text = "Participant";
+                grandChildNode.Value = string.Empty;
+                childNode.ChildNodes.Add(grandChildNode);
+
+                ggChildNode = new TreeNode();
+                ggChildNode.Text = "Emergency Contact";
+                ggChildNode.Value = "~/Reports/PACE/EmergencyContact.aspx";
+                grandChildNode.ChildNodes.Add(ggChildNode);
+            }
+
+            if (AuthenticateGroup(ConfigurationManager.AppSettings["PACE_HCFA_Claims_Audit"]))
+            {
+                grandChildNode = new TreeNode();
+                grandChildNode.Text = "Claims";
+                grandChildNode.Value = string.Empty;
+                childNode.ChildNodes.Add(grandChildNode);
+
+                ggChildNode = new TreeNode();
+                ggChildNode.Text = "HCFA Claims Audit";
+                ggChildNode.Value = "~/Reports/PACE/HCFAClaimsAudit.aspx";
+                grandChildNode.ChildNodes.Add(ggChildNode);
+            }
+
+            if (AuthenticateGroup(ConfigurationManager.AppSettings["PACE_HospitalReAdmisssion"]))
+            {
+                grandChildNode = new TreeNode();
+                grandChildNode.Text = "Hospital Re-Admission";
+                grandChildNode.Value = string.Empty;
+                childNode.ChildNodes.Add(grandChildNode);
+
+                ggChildNode = new TreeNode();
+                ggChildNode.Text = "Hospital Re-Admission";
+                ggChildNode.Value = "~/Reports/PACE/HospitalReAdmission.aspx";
+                grandChildNode.ChildNodes.Add(ggChildNode);
+
+            }
+
+            if (AuthenticateGroup(ConfigurationManager.AppSettings["PACE_Partcipant_Labels"]))
+            {
+                grandChildNode = new TreeNode();
+                grandChildNode.Text = "Labels";
+                grandChildNode.Value = string.Empty;
+                childNode.ChildNodes.Add(grandChildNode);
+
+                ggChildNode = new TreeNode();
+                ggChildNode.Text = "Participant Labels";
+                ggChildNode.Value = "~/Reports/PACE/ParticipantLabels.aspx";
+                grandChildNode.ChildNodes.Add(ggChildNode);
+
+            }
+
+            if (AuthenticateGroup(ConfigurationManager.AppSettings["PACE_Service_Tickets"]))
+            {
+                grandChildNode = new TreeNode();
+                grandChildNode.Text = "Service";
+                grandChildNode.Value = string.Empty;
+                childNode.ChildNodes.Add(grandChildNode);
+
+                //ggChildNode = new TreeNode();
+                //ggChildNode.Text = "Hospital Re-Admission";
+                //ggChildNode.Value = "~/Reports/PACE/HospitalReAdmission.aspx";
+                //grandChildNode.ChildNodes.Add(ggChildNode);
+
+                ggChildNode = new TreeNode();
+                ggChildNode.Text = "Entered In Error Report";
+                ggChildNode.Value = "~/Reports/PACE/ServiceTickets.aspx";
+                grandChildNode.ChildNodes.Add(ggChildNode);
+
+            }
+
+            treeRoot.ChildNodes.Add(childNode);
+
+
+                    
+                
+            
+
+            
+
+
+
+            TreeView_Nav.Nodes.Add(treeRoot);   
+            //TreeView_Nav.CollapseAll();   // 2013-03-18 allow the menu branches to expand
+            new TreeViewState().RestoreTreeView(TreeView_Nav, this.GetType().ToString());
+    
+        }
+
+    }
+}

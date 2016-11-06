@@ -1,0 +1,134 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Text;
+using System.IO;
+using System.Data;
+using System.Data.Sql;
+using System.Data.SqlClient;
+using System.Data.Odbc;
+using System.Text.RegularExpressions;
+
+public partial class ReadDir : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        Button1.Visible = true;
+        Button2.Visible = true;
+        Button3.Visible = false;
+        Button4.Visible = false;
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        //****working dir search loop*******
+
+        string[] array1 = Directory.GetFiles(@"C:\Heritage", "*.txt");
+        string[] fileLines;
+        string[] all;
+        
+        foreach (string name in array1)
+        {
+            fileLines = new string[] { "" };
+            fileLines = File.ReadAllLines(name);
+            string[] separators = { ",", ".", "!", "?", ";", ":", " " };
+            
+            for (int i = 0; i < fileLines.Length; i++)
+            {
+                
+                all = fileLines[i].Split(new Char[] { '"', '\t'});
+
+                string MedNum = all[0].ToString();
+                string Name = all[2].ToString();
+                string Number = all[4].ToString();
+                string Code = all[5].ToString();
+                string Minutes = all[6].ToString();
+                string Date = all[7].ToString();
+                string Site = all[8].ToString();
+          
+                Label1.Text = Site;
+
+                SqlConnection conn = new SqlConnection("Data Source=192.168.111.175;Initial Catalog=TestData;Integrated Security=True");
+                conn.Open();
+                string qryString = "INSERT INTO ChurchillManor(MedNum, Name, Number, Code, Minutes, Date,Site) VALUES(@MedNum, @Name, @Number, @Code, @Minutes, @Date,@Site)";
+                SqlCommand cmd = new SqlCommand(qryString, conn);
+                cmd.Connection = conn;
+                cmd.Parameters.Add("@MedNum", MedNum);
+                cmd.Parameters.Add("@Name", Name);
+                cmd.Parameters.Add("@Number", Number);
+                cmd.Parameters.Add("@Code", Code);
+                cmd.Parameters.Add("@Minutes", Minutes);
+                cmd.Parameters.Add("@Date", Date);
+                cmd.Parameters.Add("@Site", Site);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+                conn.Close();
+
+                //********extra routine to dump all files into table*********
+
+                //SqlConnection conn = new SqlConnection("Data Source=192.168.111.175;Initial Catalog=TestData;Integrated Security=True");
+                //conn.Open();
+                //string qryString = "INSERT INTO HTG_ALL(HTG) VALUES(@HTG)";
+                //SqlCommand cmd = new SqlCommand(qryString, conn);
+                //cmd.Connection = conn;
+                //cmd.Parameters.Add("@HTG", HTG);
+                //cmd.ExecuteNonQuery();
+                //cmd.Dispose();
+                //conn.Close();
+                }
+                //*****old working code*******
+                // Label1.Text = name;
+                // Label1.Text = fileLines[0].ToString();
+                //******END**************
+            }
+
+    }
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        string qryString = "SELECT MedNum, SUM(MINUTES/15) AS UNITS FROM ChurchillManor GROUP BY MedNum";
+        StreamWriter YourWriter = new StreamWriter(@"c:\Heritage.txt");
+        SqlCommand YourCommand = new SqlCommand();
+        SqlConnection YourConnection = new SqlConnection("Data Source=192.168.111.175;Initial Catalog=TestData;Integrated Security=True");
+        YourCommand.Connection = YourConnection;
+        YourCommand.CommandText = qryString;
+        //
+        YourConnection.Open();
+
+        using (YourConnection)
+        {
+            using (SqlDataReader sdr = YourCommand.ExecuteReader())
+            using (YourWriter)
+            {
+                while (sdr.Read())
+                YourWriter.WriteLine(sdr[0].ToString() + " " + sdr[1].ToString());
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             " + "\r\n");
+                sdr.Close();
+                
+            }
+        }
+    }    
+   
+  }
+   
+
+}
+    protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (DropDownList1.Text.ToString() == "Heritage")
+        {
+            Button1.Visible = true;
+            Button2.Visible = true;
+            Button3.Visible = false;
+            Button4.Visible = false;
+        }
+        if(DropDownList1.Text.ToString() == "Jolenta")
+        {
+            Button1.Visible = false;
+            Button2.Visible = false; 
+            Button3.Visible = true;
+            Button4.Visible = true;
+        }
+    }
+}
