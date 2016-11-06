@@ -1,0 +1,94 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+
+<HTML xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>Current Projects</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<META lang=en name=description 
+content="Portfolio">
+<META name=author content="Dan Hanks">
+<META name=keywords 
+content="dan, hanks">
+<LINK rel="shortcut icon" type=image/ico href="/images/favicon.gif">
+<LINK rel=stylesheet type=text/css href="css/style.css">
+<!-- include jQuery library -->
+<SCRIPT type=text/javascript 
+src="scripts/jquery-1.3.2.min.js"></SCRIPT>
+<!-- include Cycle plugin -->
+<SCRIPT type=text/javascript 
+src="scripts/jquery.cycle.all.js"></SCRIPT>
+<!-- include Easing plugin -->
+<SCRIPT type=text/javascript 
+src="scripts/jquery.easing.1.3.js"></SCRIPT>
+ 
+<SCRIPT type=text/javascript>
+$(document).ready(function() {
+ 
+	$('#s1').cycle({
+	    fx:     'scrollHorz',
+	    prev:   '#prev1',
+	    next:   '#next1',
+	    speed:   500,
+	    timeout: 0,
+	    easing: 'easeOutBack'
+	});
+ 
+});
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+</SCRIPT>
+ 
+<META name=GENERATOR content="MSHTML 8.00.7600.16912">
+<style type="text/css"> 
+<!--
+.intro {   float: left;
+   
+   width: 150px;
+   background-color: rgb(255, 255, 255)
+}
+-->
+</style>
+</HEAD>
+<BODY>
+<DIV id=container>
+<DIV id=header>
+<DIV class=title><a href="index.html"><img src="images/header.jpg" width="960" height="40"></a>
+  <DIV class=clear></DIV></DIV>
+<DIV class=clear></DIV></DIV>
+ 
+<DIV id=content>
+<DIV id=description><br/>
+  
+  <H1>Air Hockey Demo</H1>
+  <br/>
+  <P>This is a &quot;simple&quot; air hockey demo that I made. To develop this demo I used a three stage software development guide that is broken down as follows:</P>
+  <ul>
+  <li><strong>Analysis</strong>: This is the studying of the software requirement in detail. This is where a clear pricture of how the program ought to run is realized and what problems will need to be solved in regards to topics such as AI behavior and physics.</li>
+  <li><strong>Design</strong>: This stage requires problems/features identified in the first stage to be solved and decisions on how the actual program should be constructed to be made. For this demo algorithmic solutions needed to be created to determine how the game would behave with things such as collisions (puck/paddle, puck/wall, etc.) and how the computer behaves (AI). The slides shown give examples of how the AI was created as well as an example of the collision physics.</li>
+  <li><strong>Implementation</strong>: This is the actual creation of the software. This is where the problems identified are solved (and sometimes new problems created).  In short, the real work is done here and you find out how well you did in the Design phase.</li>
+ </ul>
+<H2>&nbsp;</H2></DIV><!-- end #description -->
+<DIV id=viewer><A id=prev1 href="http://www.dan-hanks.com#"><IMG 
+class=arrow-left title="Previous Image" 
+src="images/arrow-left.png" 
+width=50 height=52></A> 
+<DIV id=s1 class=slideshow><a href="hockey/AI.jpg"><img title="PS 3D" 
+src="hockey/AI.jpg"></a><IMG title="hockey" 
+src="hockey/r/AI.png">
+width=512> <!--<IMG title="Island" 
+src="images/image012.jpg">-->
+</DIV><A id=next1 
+"><IMG class=arrow-right 
+title="Next Image" 
+src="images/arrow-right.png" 
+width=50 height=52></A> </DIV>
+<DIV class=clear></DIV></DIV><!-- end #content -->
+<DIV class=clear></DIV></DIV><!-- end #container -->
+<DIV id=push></DIV>
+<DIV id=footer>
+<DIV id=footer-inside>© 2011 Daniel Hanks Jr.</DIV></DIV>
+ 
+</BODY></HTML>
+

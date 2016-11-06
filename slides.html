@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	
+	<title>Slides, A Slideshow Plugin for jQuery</title>
+	
+	<link rel="stylesheet" href="css/global.css">
+    <!--Start CSS-->
+    <style type='text/css'>
+.wrapper{
+   margin: 0px auto;
+   width: 960px;
+   background-color: rgb(255, 255, 255)
+}
+.header{
+   float: left;
+   width: 100%;
+   background-color: rgb(255, 255, 255)
+}
+.left1{
+   float: left;
+   margin-right: 28px;
+   width: 217px;
+   background-color: rgb(255, 255, 255)
+}
+.intro{
+   float: left;
+   
+   width: 150px;
+   background-color: rgb(255, 255, 255)
+}
+.left2{
+   float: left;
+   margin-right: 28px;
+   width: 217px;
+   background-color: rgb(255, 255, 255)
+}
+.left3{
+   float: left;
+   margin-right: 28px;
+   width: 217px;
+   background-color: rgb(255, 255, 255)
+}
+.right{
+   float: right;
+   
+   width: 217px;
+   background-color: rgb(255, 255, 255)
+}
+.right_text{
+	float: right;
+	margin-right: 90px;
+	width: 220px;
+    background-color: rgb(255, 255, 255)
+	
+.footer{
+   float: left;
+   width: 100%;
+   background-color: rgb(255, 255, 255)
+}
+body {
+	padding: 0px;
+	margin: 0px;
+	background-color: rgb(255, 255, 255)
+}
+.wrapper .header {
+	border-bottom-width: thin;
+	border-bottom-style: solid;
+	border-bottom-color: #000;
+}
+.wrapper .header img {
+}
+.underline {
+	border-bottom-width: thin;
+	border-bottom-style: solid;
+	border-bottom-color: #000;
+}
+.left_description{
+	wdith:300px;
+	float:left;
+}
+	
+	
+	
+	</style>
+    <!--End CSS-->
+	
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+	<script src="scripts/slides.min.jquery.js"></script>
+	<script>
+		$(function(){
+			// Set starting slide to 1
+			var startSlide = 1;
+			// Get slide number if it exists
+			if (window.location.hash) {
+				startSlide = window.location.hash.replace('#','');
+			}
+			// Initialize Slides
+			$('#slides').slides({
+				preload: true,
+				preloadImage: 'img/loading.gif',
+				generatePagination: true,
+				play: 5000,
+				pause: 2500,
+				hoverPause: true,
+				// Get the starting slide
+				start: startSlide,
+				animationComplete: function(current){
+					// Set the slide number as a hash
+					window.location.hash = '#' + current;
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+<div class="left_description">
+test
+</div>
+
+
+	<!--Start slider-->
+	<div id="container">
+	  <div id="example">
+		<div id="slides">
+				<div class="slides_container">
+					<div class="slide">
+					 <!-- <h1>First Slide</h1>-->
+                        <img src="images/11_end_j.jpg" width="512" height="512">
+                        <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+						<p><a href="#4" class="link">Check out the fourth slide &rsaquo;</a></p>-->
+					</div>
+					<div class="slide">
+						<h1>Second Slide</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+						<p><a href="#5" class="link">Check out the fifth slide &rsaquo;</a></p>
+					</div>
+					<div class="slide">
+						<h1>Third Slide</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+						<p><a href="#1" class="link">Check out the first slide &rsaquo;</a></p>
+					</div>
+					<div class="slide">
+						<h1>Fourth Slide</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+						<p><a href="#6" class="link">Check out the sixth slide &rsaquo;</a></p>
+					</div>
+					<div class="slide">
+						<h1>Fifth Slide</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+						<p><a href="#7" class="link">Check out the seventh slide &rsaquo;</a></p>
+					</div>
+					<div class="slide">
+						<h1>Sixth Slide</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+						<p><a href="#1" class="link">Check out the first slide &rsaquo;</a></p>
+					</div>
+					<div class="slide">
+						<h1>Seventh Slide</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+						<p><a href="#3" class="link">Check out the third slide &rsaquo;</a></p>
+					</div>
+				</div>
+				<a href="#" class="prev"><img src="img/arrow-prev.png" width="24" height="43" alt="Arrow Prev"></a>
+				<a href="#" class="next"><img src="img/arrow-next.png" width="24" height="43" alt="Arrow Next"></a>
+		  </div>
+		  <img src="img/example-frame.png" width="739" height="612" alt="Example Frame" id="frame">
+		</div>
+		<div id="footer">
+			<p>Photoshop</p>
+		</div>
+	</div>
+</body>
+</html>

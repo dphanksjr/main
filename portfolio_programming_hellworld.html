@@ -1,0 +1,68 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+
+<HTML xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>Hello World</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<META lang=en name=description 
+content="Portfolio">
+<META name=author content="Dan Hanks">
+<META name=keywords 
+content="dan, hanks">
+<LINK rel="shortcut icon" type=image/ico href="/images/favicon.gif">
+<LINK rel=stylesheet type=text/css href="css/style.css">
+<!-- include jQuery library -->
+<SCRIPT type=text/javascript 
+src="scripts/jquery-1.3.2.min.js"></SCRIPT>
+<!-- include Cycle plugin -->
+<SCRIPT type=text/javascript 
+src="scripts/jquery.cycle.all.js"></SCRIPT>
+<!-- include Easing plugin -->
+<SCRIPT type=text/javascript 
+src="scripts/jquery.easing.1.3.js"></SCRIPT>
+
+<SCRIPT type=text/javascript>
+$(document).ready(function() {
+
+	$('#s1').cycle({
+	    fx:     'scrollHorz',
+	    prev:   '#prev1',
+	    next:   '#next1',
+	    speed:   500,
+	    timeout: 0,
+	    easing: 'easeOutBack'
+	});
+
+});
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+</SCRIPT>
+
+<META name=GENERATOR content="MSHTML 8.00.7600.16912">
+<style type="text/css">
+<!--
+.intro {   float: left;
+   
+   width: 150px;
+   background-color: rgb(255, 255, 255)
+}
+-->
+</style>
+</HEAD>
+<BODY>
+<DIV id=container>
+<DIV id=header>
+<DIV class=title><a href="index.html"><img src="images/header.jpg" width="960" height="40"></a>
+  <DIV class=clear></DIV></DIV>
+<DIV class=clear>
+ 
+  <p><img src="images/code/csharp/helloworld.jpg"></p>
+</DIV></DIV><!-- end #content -->
+<DIV class=clear></DIV></DIV><!-- end #container -->
+<DIV id=push></DIV>
+<DIV id=footer>
+<DIV id=footer-inside>© 2011 Daniel Hanks Jr.</DIV></DIV>
+
+</BODY></HTML>

@@ -1,0 +1,114 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0039)http://www.tim-miller.org/holeshot.html -->
+<HTML xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>Photoshop Projects</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<META lang=en name=description 
+content="Photoshop Portfolio">
+<META name=author content="Dan Hanks">
+<META name=keywords 
+content="dan, hanks">
+<LINK rel="shortcut icon" type=image/ico href="/images/favicon.gif">
+<LINK rel=stylesheet type=text/css href="css/style.css">
+<!-- include jQuery library -->
+<SCRIPT type=text/javascript 
+src="scripts/jquery-1.3.2.min.js"></SCRIPT>
+<!-- include Cycle plugin -->
+<SCRIPT type=text/javascript 
+src="scripts/jquery.cycle.all.js"></SCRIPT>
+<!-- include Easing plugin -->
+<SCRIPT type=text/javascript 
+src="scripts/jquery.easing.1.3.js"></SCRIPT>
+
+<SCRIPT type=text/javascript>
+$(document).ready(function() {
+
+	$('#s1').cycle({
+	    fx:     'scrollHorz',
+	    prev:   '#prev1',
+	    next:   '#next1',
+	    speed:   500,
+	    timeout: 0,
+	    easing: 'easeOutBack'
+	});
+
+});
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+</SCRIPT>
+
+<META name=GENERATOR content="MSHTML 8.00.7600.16912">
+<style type="text/css">
+<!--
+.intro {   float: left;
+   
+   width: 150px;
+   background-color: rgb(255, 255, 255)
+}
+-->
+</style>
+</HEAD>
+<BODY onLoad="MM_preloadImages('images/portfolio_link_a.jpg','images/resume_link_a.jpg','images/twitter_link_a.jpg')">
+<DIV id=container>
+<DIV id=header>
+<DIV class=title><a href="index.html"><img src="images/header.jpg" width="960" height="40"></a>
+  <DIV class=clear></DIV></DIV>
+<div class="intro"> <a href="index.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('portfolio_rollover','','images/portfolio_link_a.jpg',1)"><img src="images/portfolio_link_b.jpg" alt="" name="portfolio_rollover" width="98" height="36" border="0" id="portfolio_rollover" /></a> <a href="documents/Resume.pdf" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('resume_rollover','','images/resume_link_a.jpg',1)"><img src="images/resume_link_b.jpg" alt="" name="resume_rollover" width="98" height="36" border="0" id="resume_rollover" /></a><a href="&quot;&quot;" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('resume_rollover','','images/resume_link_a.jpg',1)"></a> <a href="http://twitter.com/#!/dphanksjr" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Twitter_rollover','','images/twitter_link_a.jpg',1)"><img src="images/twitter_link_b.jpg" alt="" name="Twitter_rollover" width="98" height="36" border="0" id="Twitter_rollover" /></a> </div>
+<DIV class=about>
+<P><a href="portfolio_photoshop.html"><img src="images/logo/PS_r.jpg" width="147" height="147" alt="PS"></a></P>
+</DIV>
+<DIV class=about>
+<P><a href="portfolio_unity.html"><img src="images/logo/unity_r.jpg" width="141" height="141"></a></P>
+</DIV>
+<DIV class=about>
+<P><a href="portfolio_web.html"><img src="images/logo/web.jpg" width="196" height="147" alt="www"></a></P>
+</DIV>
+<DIV class=clear></DIV></DIV>
+
+<DIV id=content>
+<DIV id=description>
+  <img src="images/logo/maya_r.jpg" width="147" height="147">
+  <br/><br/>
+  <H1>Slide Explanation</H1><br/>
+  <P>For every frame, we will want to compute the velocity of the mouse.  Why? Recall that the player controls the blue paddle with the mouse; that is, the blue paddle moves with the mouse.  So computing the mouse velocity is really just a way to compute the blue paddle's velocity.  The reason we need its velocity is for some of the physics calculations.<br>
+    <br>
+    Suppose delta-t is the amount of time that has elapsed between the previous frame and the current frame.    It is the time that has passed between game loop cycles.  Also let r(i-1) and r(i) be the position of the mouse for the previous and current frame, respectively.  Note that the mouse position can be obtained at any time by calling the Win32 API function GetCursorPos.  To keep track of the previous mouse position, we just save it in a variable that persists across frames. The displacement vector is given by r(i) - r(i-1).  The figure on the slide shows what this means graphically.  This subtraction gives us a vector originating from the previous position to the new position.  Thus, it tells us two things: it tells us a distance on how far the paddle moved and also the direction in which it moved.  So to recap, so far we have the change in time and also the displacement (change in position) of the mouse.  By definition, velocity is equal to displacement over time.  Thus the velocity of the mouse for a given frame is the displacement vector delta-r divided by delta-t. <br>
+    <br>
+    Note that speed is defined to be distance over time.  This is close to velocity, but note that velocity gives a direction--it is a vector.  In fact, the magnitude of the velocity vector gives the speed. </P>
+<H2>&nbsp;</H2></DIV><!-- end #description -->
+<DIV id=viewer><IMG 
+class=arrow-left title="Previous Image" 
+src="images/arrow-left.png" 
+width=50 height=52> 
+<DIV id=s1 class=slideshow><IMG title="PS 3D" 
+src="images/hockey/mouse_velocity_r.jpg" 
+width=512 height=380></DIV><A href="portfolio_hockey_AI.html" id=next1 
+http://www.tim-miller.org/holeshot.html#"><IMG class=arrow-right 
+title="Next Image" 
+src="images/arrow-right.png" 
+width=50 height=52></A> </DIV>
+<DIV class=clear></DIV></DIV><!-- end #content -->
+<DIV class=clear></DIV></DIV><!-- end #container -->
+<DIV id=push></DIV>
+<DIV id=footer>
+<DIV id=footer-inside>© 2011 Daniel Hanks Jr.</DIV></DIV>
+
+</BODY></HTML>

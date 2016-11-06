@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>4 Column CSS Layout - concise design</title>
+
+<style type='text/css'>
+.wrapper{
+   margin: 0px auto;
+   width: 960px;
+   background-color: rgb(255, 255, 255)
+}
+.header{
+   float: left;
+   width: 100%;
+   background-color: rgb(255, 255, 255)
+}
+.portfolio{
+	width: 960px;
+}
+.description{
+	width: 298px;
+	float:left
+}
+.display{
+	width: 645px;
+	float:right;
+}
+
+.left1{
+   float: left;
+   margin-right: 28px;
+   width: 217px;
+   background-color: rgb(255, 255, 255)
+}
+.intro{
+   float: left;
+   
+   width: 150px;
+   background-color: rgb(255, 255, 255)
+}
+.left2{
+   float: left;
+   margin-right: 28px;
+   width: 217px;
+   background-color: rgb(255, 255, 255)
+}
+.left3{
+   float: left;
+   margin-right: 28px;
+   width: 217px;
+   background-color: rgb(255, 255, 255)
+}
+.right{
+   float: right;
+   
+   width: 217px;
+   background-color: rgb(255, 255, 255)
+}
+.right_text{
+	float: right;
+	margin-right: 90px;
+	width: 220px;
+    background-color: rgb(255, 255, 255)
+	
+.footer{
+   float: left;
+   width: 100%;
+   background-color: rgb(255, 255, 255)
+}
+body {
+	padding: 0px;
+	margin: 0px;
+	background-color: rgb(255, 255, 255)
+}
+.wrapper .header {
+	border-bottom-width: thin;
+	border-bottom-style: solid;
+	border-bottom-color: #000;
+}
+.wrapper .header img {
+}
+.underline {
+	border-bottom-width: thin;
+	border-bottom-style: solid;
+	border-bottom-color: #000;
+}
+.viewer {
+	WIDTH: 645px; FLOAT: right
+}
+.arrow-left {
+	MARGIN-TOP: 200px; FLOAT: left
+}
+.arrow-right {
+	MARGIN-TOP: 200px; FLOAT: right
+}
+.slideshow {
+	WIDTH: 512px; FLOAT: left; HEIGHT: 462px; MARGIN-LEFT: 13px
+}
+.right {
+	CURSOR: pointer
+}
+.content {
+	MARGIN-TOP: 20px; WIDTH: 960px; MARGIN-BOTTOM: 60px
+}
+</style>
+<script type="text/javascript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+
+	<link rel="stylesheet" href="css/global.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+	<script src="scripts/slides.min.jquery.js"></script>
+	<script>
+		$(function(){
+			// Set starting slide to 1
+			var startSlide = 1;
+			// Get slide number if it exists
+			if (window.location.hash) {
+				startSlide = window.location.hash.replace('#','');
+			}
+			// Initialize Slides
+			$('#slides').slides({
+				preload: true,
+				preloadImage: 'img/loading.gif',
+				generatePagination: true,
+				play: 5000,
+				pause: 2500,
+				hoverPause: true,
+				// Get the starting slide
+				start: startSlide,
+				animationComplete: function(current){
+					// Set the slide number as a hash
+					window.location.hash = '#' + current;
+				}
+			});
+		});
+		</script>
+</head>
+<body onload="MM_preloadImages('images/header_roll.jpg','images/portfolio_link_a.jpg','images/resume_link_a.jpg','images/twitter_link_a.jpg')">
+<div class="wrapper">
+    <div class="header"><a href="mailto:dhanksjr@twcny.rr.com" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('header_rollover','','images/header_roll.jpg',1)"><img src="images/header.jpg" name="header_rollover" width="960" border="0" id="header_rollover" /></a><br/><br/>
+    <div class="intro">
+        <a href="test.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('portfolio_rollover','','images/portfolio_link_a.jpg',1)"><img src="images/portfolio_link_b.jpg" name="portfolio_rollover" width="98" height="36" border="0" id="portfolio_rollover" /></a>
+        <a href="test.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('resume_rollover','','images/resume_link_a.jpg',1)"><img src="images/resume_link_b.jpg" name="resume_rollover" width="98" height="36" border="0" id="resume_rollover" /></a>
+        <a href="http://www.twitter.com" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Twitter_rollover','','images/twitter_link_a.jpg',1)"><img src="images/twitter_link_b.jpg" name="Twitter_rollover" width="98" height="36" border="0" id="Twitter_rollover" /></a>
+        
+    </div>
+    <div class="left2">
+      <p>I'm currently a Computer Consultant for Syracuse University and teach part-time for Bryant &amp; Stratton College. </p>
+      <p>I've been in the IT industry for over 13 years doing various things such as web design/programming, database programming, system/network administration and of course, desktop support.    </p>
+    </div>
+    <div class="left3">
+        <p> While I do get to create and update pages on the college website, I would like to expand on more creative endeavors.</p>
+        <p>I enjoy networking and teaching classes, but I would love an opporunity in anything involving video games. Following the video game industry has been a passion of mine for years but job opportunities were slim in the past.    </p>
+</div>
+    <div class="right_text">
+      <p>My hope  is the mobile gaming and downloadable distribution revolution is my opportunity to develop video games in some capacity. <br />
+        <br />
+      In my free time I've been trying to create a portfolio of sorts to hopefully help create more opportunities in my pursuits. Below you will see example of my creative and technical skills that I've aquired over the years.    </p>
+    </div> 
+     <div class="header"><img src="images/creative_header.jpg" width="960" alt="creative_header" /></div>
+     <div class="left1">
+       <p><img src="images/logo/PS_r.jpg" alt="PS" /></p>
+    </div>
+    <div class="left2">
+      <p><img src="images/logo/maya_r.jpg" alt="Maya" /></p>
+    </div>
+    <div class="left3">
+      <p><img src="images/logo/unity_r.jpg" /></p>
+    </div>
+    <div class="right">
+      <p><img src="images/logo/UML.jpg" alt="UML" /></p>
+    </div> 
+  </div>
+  <div class="display">
+  test
+  </div>
+  
+
+
+    
+   <!--<div class="left1">
+        <p>left1 </p>
+        <p><img src="images/logo/PS_r.jpg" alt="PS" /></p>
+    </div>
+    <div class="left2">
+        <p>left2 </p>
+        <p><img src="images/logo/maya_r.jpg" alt="Maya" /></p>
+    </div>
+    <div class="left3">
+        <p>left3 </p>
+        <p><img src="images/logo/unity_r.jpg" /></p>
+    </div>
+    <div class="right">
+        <p>right </p>
+        <p><img src="images/logo/UML.jpg" alt="UML" /></p>
+    </div> 
+     <div class="header"><img src="images/tech_header.jpg" width="960" height="37" /></div>
+     <div class="left1">
+        <p>left1 </p>
+        <p><img src="images/logo/PS_r.jpg" alt="PS" /></p>
+    </div>
+    <div class="left2">
+        <p>left2 </p>
+        <p><img src="images/logo/maya_r.jpg" alt="Maya" /></p>
+    </div>
+    <div class="left3">
+        <p>left3 </p>
+        <p><img src="images/logo/unity_r.jpg" /></p>
+    </div>
+    <div class="right">
+        <p>right </p>
+        <p><img src="images/logo/UML.jpg" alt="UML" /></p>
+    </div> -->
+     
+<!--<div class="footer">
+        footer
+    </div>-->
+</div>
+</body>
+</HTML>
