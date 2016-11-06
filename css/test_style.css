@@ -1,0 +1,58 @@
+.header{
+   position: relative;
+   float: left;
+   left: 240px;
+   width: 960px;
+   background-color: rgb(244, 244, 244)
+}
+.wrapper{
+   position: relative;
+   float: left;
+   left: 240px;
+   width: 960px;
+   background-color: rgb(204, 204, 204)
+}
+.left1{
+   position: relative;
+   float: left;
+   left: 10px;
+   width: 217px;
+   background-color: rgb(204, 204, 255)
+}
+.left2{
+   position: relative;
+   float: left;
+   left: 30px;
+   width: 217px;
+   background-color: rgb(204, 204, 255)
+}
+.left3{
+   position: relative;
+   float: left;
+   left: 50px;
+   width: 217px;
+   background-color: rgb(204, 204, 255)
+}
+.right{
+   position: relative;
+   float: right;
+   right: 10px;
+   width: 229px;
+   background-color: rgb(204, 204, 255)
+}
+.footer{
+   position: relative;
+   float: left;
+   left: 240px;
+   width: 960px;
+   background-color: rgb(207, 207, 207)
+}
+body {
+   border-width: 0px;
+   padding: 0px;
+   margin: 0px;
+   font-size: 90%;
+   background-color: rgb(231, 231, 222)
+}
+
+
