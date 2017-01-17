@@ -1,0 +1,120 @@
+/* Normalizes margin, padding */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, blockquote, th, td 
+{ margin : 0; padding : 0; }
+
+/* Normalizes font-size for headers */
+h1,h2,h3,h4,h5,h6 { font-size : 100%; }
+
+/* Removes list-style from lists */
+ol,ul { list-style : none; }
+
+/* Normalizes font-style and font-weight to normal */
+address, caption, cite, code, dfn, em, strong, th, var
+{ font-style : normal; font-weight : normal; }
+
+/* Removes list-style from lists */
+table { border-collapse : collapse; border-spacing : 0; }
+
+/* Removes border from fieldset and img */
+fieldset,img { border : 0; }
+
+/* Left-aligns text in caption and th */
+caption,th { text-align : left; }
+
+/* Removes quotation marks from q */
+q:before, q:after { content :''; }
+
+
+/* layout.css */
+
+html 	{ text-align : center;  }
+
+body { 
+position : relative; 
+width : 770px; 
+margin : 0 auto; 
+text-align : left; }
+
+div#content { 
+position : relative; 
+width : 100%; }
+
+
+div#content_main {
+left : 0; 
+width : 50%; 
+padding : 1em 0; }
+  
+div#content_sub { 
+left : 50%;  
+width : 50%; 
+padding : 1em 0; }
+
+/* =switch columns */
+div#content_main {
+left : 50%; 
+width : 50%; 
+padding : 1em 0; }
+  
+div#content_sub { 
+left : 0;  
+width : 50%; 
+padding : 1em 0; } 
+
+
+div#branding, div#nav_main, div#site_info {
+width : 100%; }
+
+
+
+div#branding, div#nav_main, div#site_info {
+width : 100%; }
+
+/* =si_clear_children */
+.pc,.sc { position : absolute; top: 0; left: 0; }
+.clear_children,.cc_tallest { position: relative; } /*\*/* html .clear_children { display: inline;}/**/
+.cc_tallest:after { content: ''; } /* PREVENTS A REDRAW BUG IN SAFARI */
+
+/* typography.css */
+
+body { 
+font : 72%/1.5 "Trebuchet MS", "Lucida Grande","Lucida Sans Unicode", Verdana, sans-serif; color : #333; }
+
+h2, h3, h4, p, ul, blockquote { 
+margin : 0 20px .75em; }
+
+h2, h3 { 
+margin-bottom : .15em;
+font : 200% "Trebuchet MS", "Lucida Grande","Lucida Sans Unicode", Verdana, sans-serif; 
+font-weight : bold; 
+letter-spacing : -1px; }
+
+p { 
+font-size : 100%; }
+
+h2, h3 {
+	color : #33004E;
+}
+
+h2+p { 
+font-size : 110%; }
+
+li > h4 { margin-left : 0; }
+
+div#nav_main p { 
+font-size : 160%;
+color : #88a308; }
+
+div#site_info p { 
+color : #fff; }
+
+li > p { margin-left : 0; }
+
+a:link, a:visited { 
+text-decoration : none; }
+
+a:link, a:visited { 
+color : #f90; }
+
+ul#nav_tools a {
+color : #fff; } 

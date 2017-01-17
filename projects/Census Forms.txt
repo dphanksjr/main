@@ -1,0 +1,26 @@
+SELECT SOS_PATIENT.LastName + N', ' + dbo.SOS_PATIENT.FirstName + N' ' + dbo.SOS_PATIENT.MI + N'  #' + CAST(dbo.SOS_PATIENT.Pnum AS varchar(10)) AS Patient, 
+    List_RNCaseManagers.LastName + N', ' + dbo.List_RNCaseManagers.FirstName AS CaseManager,
+            ProgramName = Case List_Programs.ProgramDescription
+                               WHEN 'ALP:  LAC LHCSA/Heritage' THEN 'ALP'
+                               WHEN 'Adult Home' THEN 'AH'
+                         END          , SOS_RSTAT.Room
+   FROM Care_Plans_06,List_RNCaseManagers ,LU_CP_RNCaseManager,SOS_PATIENT, SOS_RSTAT,List_Programs, LU_CP_Program
+  WHERE Care_Plans_06.CarePlanID = LU_CP_RNCaseManager.CarePlanID
+       AND LU_CP_RNCaseManager.RNCaseManagerID = List_RNCaseManagers.RNCaseManagerID
+       AND SOS_RSTAT.Facadm IN (9)
+       AND SOS_PATIENT.Pnum = SOS_RSTAT.Pnum
+       AND Care_Plans_06.Pnum = SOS_PATIENT.Pnum
+       AND Care_Plans_06.CarePlanID = LU_CP_Program.CarePlanID
+       AND List_Programs.ProgramID = LU_CP_Program.ProgramID
+       AND LU_CP_RNCaseManager.CarePlanID IN
+              (SELECT Max(Distinct(Care_Plans_06.CarePlanID)) FROM Care_Plans_06 GROUP BY Pnum)
+ORDER BY Patient
+
+--------------------------------------------------------------------------------------------------
+
+Fields:
+
+Patient (string)
+CaseManager (string)
+ProgramDescription (string)
+Room (integer)

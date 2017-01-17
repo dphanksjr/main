@@ -1,0 +1,394 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using GeocodeService;
+using ImageryService;
+using RouteService;
+using SearchService;
+using System.Text.RegularExpressions;
+using System.Configuration;
+using System.Text;
+using System.Data.Odbc;
+using System.Data;
+using System.Data.Sql;
+using System.Data.SqlClient;
+using MySql.Data;
+using MySql.Data.Common;
+using MySql.Data.Entity;
+using MySql.Data.MySqlClient;
+
+
+public partial class DirectionsFormTest : System.Web.UI.Page
+{
+    
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+        
+
+        if (TextBox1.Text.Length == 0)
+            GetFullAddress();
+        
+        
+
+        if (!IsPostBack) // Because When postback occurs the selected valued changed.
+        {
+            ViewState["PreviousValue"] = DropDownList1.SelectedValue;
+        }
+
+
+     
+    }
+
+    private void GetFullAddress()
+    {
+
+        MySqlConnection myConn = new MySqlConnection("server=mediture-d;User Id=syrac_ro;password=r3@d0nly;Persist Security Info=True;database=truchart_syrac_report");
+
+        String strSQL = "SELECT CONCAT(patient.AddressLine1, ' ', patient.AddressLine2, ' ',  patient.City, ' ', patient.State, ' ', patient.Zip) AS Address, patient.AccountNumber FROM truchart_syrac_report.enrollment, truchart_syrac_report.patient, truchart_syrac_report.participant WHERE (enrollment.PatientID = patient.PatientID) AND (patient.PatientID = participant.ParticipantID) AND (enrollment.BranchID = 20172690 OR enrollment.BranchID = 20172695) AND (enrollment.EnrollmentStatus = 'Prospective' OR enrollment.EnrollmentStatus = 'Active') ORDER BY patient.LastName";
+        
+
+        //DataAdapter Setup
+        MySqlDataAdapter adapter = new MySqlDataAdapter(strSQL, myConn);
+
+        //DataSet, DataAdapter & Table
+        DataSet objDataSet = new DataSet();
+        adapter.Fill(objDataSet, "dtAR1");
+
+        //Set up a filter to use the text box value...
+        String Filter = "Address= 'ABF'";
+
+        objDataSet.Tables[0].DefaultView.RowFilter = Filter;
+        objDataSet.Tables["dtAR1"].DefaultView.RowFilter = Filter;
+
+        //Create DataTable & DataView to feed single text box values on form.....
+
+        DataTable dtAR1 = objDataSet.Tables["dtAR1"];
+        DataView dv1 = new DataView(dtAR1);
+
+
+        TextBox1.Text = (string)dv1[0]["Address"];
+        myConn.Close();
+
+    }
+
+
+   
+
+    private string CreateRoute(string waypointString)
+    {
+        string results = "";
+        string key = "ApLK7afmp1iFFbWe23x4117rS5UU7uaEL4oqMzLaAc29DC24mCYldj93n9Fe5Eo7";
+        RouteRequest routeRequest = new RouteRequest();
+
+
+        // Set the credentials using a valid Bing Maps key
+        routeRequest.Credentials = new RouteService.Credentials();
+
+
+
+        routeRequest.Credentials.ApplicationId = key;
+
+        //Parse user data to create array of waypoints
+        string[] points = waypointString.Split(';');
+        Waypoint[] waypoints = new Waypoint[points.Length];
+
+        int pointIndex = -1;
+        foreach (string point in points)
+        {
+            pointIndex++;
+            waypoints[pointIndex] = new Waypoint();
+            string[] digits = point.Split(','); waypoints[pointIndex].Location = new RouteService.Location();
+            waypoints[pointIndex].Location.Latitude = double.Parse(digits[0].Trim());
+            waypoints[pointIndex].Location.Longitude = double.Parse(digits[1].Trim());
+
+
+            if (pointIndex == 0)
+                waypoints[pointIndex].Description = "Start";
+            else if (pointIndex == points.Length)
+                waypoints[pointIndex].Description = "End";
+            else
+                waypoints[pointIndex].Description = string.Format(TextBox1.Text);
+            //waypoints[pointIndex].Description = string.Format("Stop #{0}", pointIndex);
+
+        }
+
+        routeRequest.Waypoints = waypoints;
+
+        // Make the calculate route request
+
+        // RouteOptions routeOptions = new RouteOptions();
+
+        RouteServiceClient routeService = new RouteServiceClient("BasicHttpBinding_IRouteService");
+        // routeRequest.Options = routeOptions;
+
+        RouteResponse routeResponse = routeService.CalculateRoute(routeRequest);
+
+        // Iterate through each itinerary item to get the route directions
+        StringBuilder directions = new StringBuilder("");
+
+        if (routeResponse.Result.Legs.Length > 0)
+        {
+            int instructionCount = 0;
+            int legCount = 0;
+
+            foreach (RouteLeg leg in routeResponse.Result.Legs)
+            {
+                legCount++;
+                //directions.Append(string.Format("Leg #{0}<br />", legCount));
+                directions.Append(string.Format("Directions From: " + txtIput.Text + "<br />"));
+
+                foreach (ItineraryItem item in leg.Itinerary)
+                {
+                    instructionCount++;
+                    directions.Append(string.Format("{0}. {1}<br />",
+                        instructionCount, item.Text));
+                }
+            }
+            //Remove all Bing Maps tags around keywords.  
+            //If you wanted to format the results, you could use the tags
+            Regex regex = new Regex("<[/a-zA-Z:]*>",
+              RegexOptions.IgnoreCase | RegexOptions.Multiline);
+            results = regex.Replace(directions.ToString(), string.Empty);
+        }
+        else
+            results = "No Route found";
+
+        return results;
+    }
+    private String GeocodeAddress(string address)
+    {
+        string results = "";
+        string key = "ApLK7afmp1iFFbWe23x4117rS5UU7uaEL4oqMzLaAc29DC24mCYldj93n9Fe5Eo7";
+        GeocodeRequest geocodeRequest = new GeocodeRequest();
+
+        // Set the credentials using a valid Bing Maps key
+        geocodeRequest.Credentials = new GeocodeService.Credentials();
+        geocodeRequest.Credentials.ApplicationId = key;
+
+        // Set the full address query
+        geocodeRequest.Query = address;
+
+        // Set the options to only return high confidence results 
+        ConfidenceFilter[] filters = new ConfidenceFilter[1];
+        filters[0] = new ConfidenceFilter();
+        filters[0].MinimumConfidence = GeocodeService.Confidence.High;
+
+        // Add the filters to the options
+        GeocodeOptions geocodeOptions = new GeocodeOptions();
+        geocodeOptions.Filters = filters;
+        geocodeRequest.Options = geocodeOptions;
+
+        // Make the geocode request
+        GeocodeServiceClient geocodeService = new GeocodeServiceClient("BasicHttpBinding_IGeocodeService");
+        GeocodeResponse geocodeResponse = geocodeService.Geocode(geocodeRequest);
+
+        if (geocodeResponse.Results.Length > 0)
+            //results = String.Format("Latitude: {0}\nLongitude: {1}",
+            results = String.Format("{0},{1}",
+              geocodeResponse.Results[0].Locations[0].Latitude,
+              geocodeResponse.Results[0].Locations[0].Longitude);
+        else
+            results = "No Results Found";
+
+        return results;
+    }
+
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+
+        try
+        {
+            string from = GeocodeAddress(txtIput.Text);
+            string to = GeocodeAddress(TextBox1.Text);
+
+            LabelResults.Text = CreateRoute(from + "; " + to);
+
+            if (LabelResults.Text.Length > 0)
+                Label2.Visible = false;
+                Button3.Visible = false;
+        }
+        catch
+        {
+            Label2.Visible = true;
+            Button3.Visible = true;
+            TextBox1.Text = ddlErrorControl.SelectedItem.Text;
+        }
+
+    }
+
+
+
+    protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+        Session["AccountNumber"] = DropDownList1.SelectedValue;
+        DetailsView1.PageIndex = DropDownList1.SelectedIndex;
+        DropDownList2.SelectedValue = DropDownList1.SelectedValue;
+        ddlErrorControl.SelectedValue = DropDownList1.SelectedValue;
+        TextBox1.Text = DropDownList2.SelectedItem.Text;
+        DropDownList6.SelectedValue = DropDownList1.SelectedValue;
+        DropDownList7.SelectedValue = DropDownList1.SelectedValue;
+        
+        
+        //------------------------
+
+        DropDownList3.SelectedValue = DropDownList1.SelectedValue;
+        LabelResults.Text = "";
+        Label2.Visible = false;
+        Button3.Visible = false;
+        FormView2.PageIndex = DropDownList1.SelectedIndex;
+
+      
+        if (TextBox1.Text.Length == 0)
+            TextBox1.Text = DropDownList6.SelectedItem.Text;
+
+        if (DropDownList7.SelectedItem.Text == "20172690")
+        {
+            txtIput.Text = "100 Malta Lane N.Syracuse, NY";
+            lblSite.Text = "Pace 1";
+        }
+        else if (DropDownList7.SelectedItem.Text == "20172695")
+        {
+            txtIput.Text = "700 East Brighton Ave NY";
+            lblSite.Text = "Pace 2";
+        }
+      
+        
+
+        
+         
+        
+
+        if (CheckBox1.Checked == false)
+        {
+            FormView2.Visible = true;
+            Button6.Visible = true;
+           
+        }
+    
+        
+    }
+
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            if (FormView2.DataItemCount > 0)
+            {
+                SqlDataSource6.Update();
+                DropDownList1.DataBind();
+                FormView2.DataBind();
+                DropDownList1.SelectedValue = Session["AccountNumber"].ToString();
+                Label2.Visible = false;
+            }
+            else
+            {
+                SqlDataSource3.Insert();
+
+                SqlDataSource10.Update();
+                DropDownList1.DataBind();
+                FormView1.DataBind();
+               
+                DropDownList1.SelectedValue = Session["AccountNumber"].ToString();
+                Label2.Visible = false;
+                
+            }
+            
+
+        }
+        catch
+        {
+            Label3.Visible = true;
+            Button4.Visible = true;
+            Button5.Visible = true;
+        }
+
+      
+       
+
+    }
+    protected void Button6_Click(object sender, EventArgs e)
+    {
+       
+
+        try
+        {
+            if (FormView1.DataItemCount == 0)
+                SqlDataSource13.Insert();
+            else
+                SqlDataSource10.Update();
+            
+
+            DropDownList1.DataBind();
+            FormView2.DataBind();
+            DropDownList1.SelectedValue = Session["AccountNumber"].ToString();
+            Label2.Visible = false;
+
+
+
+        }
+        catch
+        {
+            Label3.Visible = true;
+            Button4.Visible = true;
+            Button5.Visible = true;
+        }
+
+      
+
+    }
+
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+       
+        Label2.Visible = false;
+        Button3.Visible = false;
+    }
+
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+        SqlDataSource6.Delete();
+        Label3.Visible = false;
+        Button4.Visible = false;
+        Button5.Visible = false;
+    }
+    protected void Button5_Click(object sender, EventArgs e)
+    {
+        Label3.Visible = false;
+        Button4.Visible = false;
+        Button5.Visible = false;
+    }
+    protected void FormView1_ItemInserted(object sender, FormViewPageEventArgs e)
+    {
+        DropDownList1.DataBind();
+    }
+
+
+    protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
+    {
+        FormView2.PageIndex = DropDownList1.SelectedIndex;
+
+        if (CheckBox1.Checked == true)
+        {
+          
+            Button6.Visible = false;
+            
+        }
+
+        if (CheckBox1.Checked == false)
+        {
+            
+            Button6.Visible = true;
+           
+        }
+    }
+
+
+
+}
