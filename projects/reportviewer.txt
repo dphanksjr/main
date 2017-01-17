@@ -1,0 +1,130 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data;
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
+
+namespace LorettoReports
+{
+    public partial class ReportViewer : System.Web.UI.Page
+    {
+        ReportDocument rptDoc = new ReportDocument();
+        protected void Page_Load(object sender, EventArgs e)
+        {
+              //
+        }
+
+        protected void CrystalReportViewer1_Init(object sender, EventArgs e)
+        {
+
+            if (Session["ReportName"] == null ||
+                Session["DataSet_Temp"] == null)
+            {
+                Response.Write("This is not a valid link. Please click the link below.");
+            }
+            else
+            {
+                string URL = string.Empty;
+            
+                Session["rptDoc"] = rptDoc;
+
+
+                //PACE Partcipant Labels
+                if (Session["ReportName"].ToString() == "rptPartcipantLabels.rpt")
+                {
+                    //DataSet DataSet_Temp = new DataSet();
+                    //DataSet_Temp = (DataSet)Session["DataSet_Temp"];
+                    //URL = Server.MapPath("~/Reports/PACE/" + Session["ReportName"].ToString());
+                    //rptDoc.Load(URL);
+                    //rptDoc.SetDataSource(DataSet_Temp);
+                    //CrystalReportViewer1.ReportSource = rptDoc;
+
+                    URL = Server.MapPath("~/Reports/PACE/" + Session["ReportName"].ToString());
+                    rptDoc.Load(URL);
+                    rptDoc.SetDataSource((DataSet)Session["DataSet_Temp"]);
+                    Session["rptDoc"] = rptDoc;
+                    CrystalReportViewer1.ReportSource = Session["rptDoc"];
+                }
+
+                //PACE Partcipant Labels
+                if (Session["ReportName"].ToString() == "rptEmergencyContact2.rpt")
+                {
+                    DataSet DataSet_Temp = new DataSet();
+                    DataSet_Temp = (DataSet)Session["DataSet_Temp"];
+                    URL = Server.MapPath("~/Reports/PACE/" + Session["ReportName"].ToString());
+                    rptDoc.Load(URL);
+                    rptDoc.SetDataSource((DataSet)Session["DataSet_Temp"]);
+                    Session["rptDoc"] = rptDoc;
+                    CrystalReportViewer1.ReportSource = Session["rptDoc"];
+
+                }
+                if (Session["ReportName"].ToString() == "rptEmergencyContact2_RiskLevel.rpt")
+                {
+                    DataSet DataSet_Temp = new DataSet();
+                    DataSet_Temp = (DataSet)Session["DataSet_Temp"];
+                    URL = Server.MapPath("~/Reports/PACE/" + Session["ReportName"].ToString());
+                    rptDoc.Load(URL);
+                    rptDoc.SetDataSource((DataSet)Session["DataSet_Temp"]);
+                    Session["rptDoc"] = rptDoc;
+                    CrystalReportViewer1.ReportSource = Session["rptDoc"];
+                }
+
+                if (Session["ReportName"].ToString() == "rptHCFAClaimsAudit_15.rpt")
+                {
+                    DataSet DataSet_Temp = new DataSet();
+                    DataSet_Temp = (DataSet)Session["DataSet_Temp"];
+                    URL = Server.MapPath("~/Reports/PACE/" + Session["ReportName"].ToString());
+                    rptDoc.Load(URL);
+                    rptDoc.SetDataSource((DataSet)Session["DataSet_Temp"]);
+                    rptDoc.SetParameterValue("StartDate", Session["StartDate"].ToString());
+                    rptDoc.SetParameterValue("EndDate", Session["EndDate"].ToString());
+                    Session["rptDoc"] = rptDoc;
+                    CrystalReportViewer1.ReportSource = Session["rptDoc"];
+                }
+
+                if (Session["ReportName"].ToString() == "rptHCFAClaimsAudit_45.rpt")
+                {
+                    DataSet DataSet_Temp = new DataSet();
+                    DataSet_Temp = (DataSet)Session["DataSet_Temp"];
+                    URL = Server.MapPath("~/Reports/PACE/" + Session["ReportName"].ToString());
+                    rptDoc.Load(URL);
+                    rptDoc.SetDataSource((DataSet)Session["DataSet_Temp"]);
+                    rptDoc.SetParameterValue("StartDate", Session["StartDate"].ToString());
+                    rptDoc.SetParameterValue("EndDate", Session["EndDate"].ToString());
+                    Session["rptDoc"] = rptDoc;
+                    CrystalReportViewer1.ReportSource = Session["rptDoc"];
+                }
+
+                if (Session["ReportName"].ToString() == "EIEReport.rpt")
+                {
+                    DataSet DataSet_Temp = new DataSet();
+                    DataSet_Temp = (DataSet)Session["DataSet_Temp"];
+                    URL = Server.MapPath("~/Reports/PACE/" + Session["ReportName"].ToString());
+                    rptDoc.Load(URL);
+                    rptDoc.SetDataSource((DataSet)Session["DataSet_Temp"]);
+                    //rptDoc.SetParameterValue("StartDate", Session["StartDate"].ToString());
+                    //rptDoc.SetParameterValue("EndDate", Session["EndDate"].ToString());
+                    Session["rptDoc"] = rptDoc;
+                    CrystalReportViewer1.ReportSource = Session["rptDoc"];
+                }
+
+
+
+
+            }
+          
+        }
+        protected void Page_Unload(object sender, EventArgs e)
+        {
+            CrystalReportViewer1.Dispose();
+            CrystalReportViewer1 = null;
+            rptDoc.Close();
+            rptDoc.Dispose();
+            rptDoc = null;
+        }
+    }
+}
