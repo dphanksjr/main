@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+
+<html class="no-js" lang="en" style="height: 100%;">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <meta content="telephone=no" name="format-detection" />   
+        <link rel="stylesheet" href="css/default/results.css" type="text/css"/>
+        <link href="_siteassets/favicons/apple-touch-icon-57x57.png" rel="apple-touch-icon-precomposed" sizes="57x57" />
+        <link href="_siteassets/favicons/apple-touch-icon-114x114.png" rel="apple-touch-icon-precomposed" sizes="114x114" />
+        <link href="_siteassets/favicons/apple-touch-icon-72x72.png" rel="apple-touch-icon-precomposed" sizes="72x72" />
+        <link href="_siteassets/favicons/apple-touch-icon-144x144.png" rel="apple-touch-icon-precomposed" sizes="144x144" />
+        <link href="_siteassets/favicons/apple-touch-icon-60x60.png" rel="apple-touch-icon-precomposed" sizes="60x60" />
+        <link href="_siteassets/favicons/apple-touch-icon-120x120.png" rel="apple-touch-icon-precomposed" sizes="120x120" />
+        <link href="_siteassets/favicons/apple-touch-icon-76x76.png" rel="apple-touch-icon-precomposed" sizes="76x76" />
+        <link href="_siteassets/favicons/apple-touch-icon-152x152.png" rel="apple-touch-icon-precomposed" sizes="152x152" />
+        <link href="_siteassets/favicons/favicon-196x196.png" rel="icon" sizes="196x196" type="image/png" />
+        <link href="_siteassets/favicons/favicon-96x96.png" rel="icon" sizes="96x96" type="image/png" />
+        <link href="_siteassets/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+        <link href="_siteassets/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+        <link href="_siteassets/favicons/favicon-128.png" rel="icon" sizes="128x128" type="image/png" />
+        <meta content="#FFFFFF" name="msapplication-TileColor" />
+        <meta content="_siteassets/favicons/mstile-144x144.png" name="msapplication-TileImage" />
+        <meta content="_siteassets/favicons/mstile-70x70.png" name="msapplication-square70x70logo" />
+        <meta content="_siteassets/favicons/mstile-150x150.png" name="msapplication-square150x150logo" />
+        <meta content="_siteassets/favicons/mstile-310x150.png" name="msapplication-wide310x150logo" />
+        <meta content="_siteassets/favicons/mstile-310x310.png" name="msapplication-square310x310logo" />  
+        <link href="assets/plugins/bootstrap/css/bootstrap-3.3.7.min.css" rel="stylesheet" />   
+        <link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+        <link href="assets/css/styles.css" id="theme-style" rel="stylesheet" />
+        <!-- Local CSS -->
+        <link href="assets/css/fonts.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/local.css" rel="stylesheet" />   
+    
+        <!-- Core Javascript Top -->
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->   
+        <!-- Local Javascript Top -->
+        <!--<script type="text/javascript" async="" src="js/libraryh3lp.js"></script><script src="js/local-head.js" type="text/javascript"></script>-->
+        <link type="text/css" rel="stylesheet" charset="UTF-8" href="css/translateelement.css">
+		<script type="text/javascript" charset="UTF-8" src="css/main.js"></script>
+		<script type="text/javascript" charset="UTF-8" src="css/element_main.js"></script>
+		  <script type="text/javascript" src="js/mootools-core-1.6.0-compressed.js"></script>
+  <script type="text/javascript" src="js/iipmooviewer-2.0-min.js"></script>
+	<!--	<script type="text/javascript">
+
+    // IIPMooViewer options: See documentation at http://iipimage.sourceforge.net for more details
+    // Server path: set if not using default path
+    var server = '/fcgi/iipsrv_scrc_004.fcgi';
+	var loadImg = '';
+		$('.fn').val(loadImg);
+    // The *full* image path on the server. This path does *not* need to be in the web
+    // server root directory. On Windows, use Unix style forward slash paths without
+    // the "c:" prefix
+    //var image = '/data/temp/ptif/none/72671_730.ptif';
+	//var image = '/data/temp/ptif/10/2-15-Addison.ptif';
+	var image = '/data/temp/ptif/10/'+loadImg;
+    // Copyright or information message
+    var credit = '&copy; copyright or information message';
+
+    // Create our iipmooviewer object
+    new IIPMooViewer( "viewer", {
+	server: server,
+	image: image,
+	showNavWindow: true,
+	navWinSize: .1,
+	viewport: {resolution:3, x:1.0, y:1.0, rotation:0},
+	credit: credit
+    });
+
+  </script>-->
+  
+ 
+        <style>
+
+            .page-sidebar{
+                width:50%; !important
+            }
+
+            .homepage-advancedsearch-select{
+                height:42px;
+            }
+            #homepage-advancedsearch-submit{
+                width: 59px;
+            }
+            #homepage-basicsearch-input{
+                width: 75%;
+            }
+
+            .homepage-advancedsearch-input{
+                width: 47%;
+            }
+        </style>
+		 <link rel="stylesheet" type="text/css" media="all" href="css/iip.min.css" />
+<!--[if lt IE 10]>
+  <meta http-equiv="X-UA-Compatible" content="IE=9" >
+  <link rel="stylesheet" type="text/css" media="all" href="css/ie.min.css" />
+<![endif]-->
+
+  <!-- Basic example style for a 100% view -->
+  <style type="text/css">
+  
+    div#viewer{
+      height: 100%;
+      min-height: 600px;
+	  min-width: 320px;
+      width: 100%;
+    
+      top: 0;
+      left: 0;
+      margin: 0;
+      padding: 0;
+    }	
+	.home-left-box{
+		height:600px;
+	}
+	.logo{
+		display:none;
+	}
+	.credit {
+		display:none;
+	}
+	
+	.iipmooviewer{
+		background:white;
+		border-style:solid;
+		border-width: 1px;
+		border-color: black;
+	}
+	
+	.zone{
+		display:none;
+	}
+	.navbuttons{
+		display:none;
+	}
+	.navwin{
+		display:none;
+	}
+	.navcontainer{
+		display:none;
+	}
+  </style>
+
+  <link rel="shortcut icon" href="images/iip-favicon.png" />
+  <link rel="apple-touch-icon" href="images/iip.png" />
+
+
+
+
+<!--[if lt IE 7]>
+  <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE7.js">IE7_PNG_SUFFIX = ".png";</script>
+<![endif]-->
+
+  
+
+    </head>
+    <body style="position: relative; min-height: 100%; top: 0px;">
+        <a class="offscreen" href="">Skip to main content</a> 
+        <div class="wrapper">
+            <div class="fixed">
+                <header class="header">
+                    <div class="header-main container">
+                        <div class="logo col-lg-5 col-md-6 col-sm-4 col-xs-12">
+                            <div class="hidden-xs logo-tertiary">
+                                <a href="https://libraries.syr.edu/scrc/index.php">
+                                    <img alt="Special Collections Research Center" id="logo" src="https://libraries.syr.edu/_siteassets/img-wordmark-scrc.svg" />
+                                </a>
+                            </div>
+                            <div class="hidden-lg hidden-md hidden-sm">
+                                <a href="https://libraries.syr.edu/scrc/index.php">
+                                    <img alt="Special Collections Research Center" id="logo" src="https://libraries.syr.edu/_siteassets/img-wordmark-scrc.svg" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="info col-lg-7 col-md-6 col-sm-8">
+                            <ul class="menu-top navbar-right hidden-xs">
+                                <li>
+                                    <a href="https://libraries.syr.edu/index.php">Syracuse University Libraries</a>
+                                </li>
+                                <li>
+                                    <a href="https://libraries.syr.edu/scrc/about/support.php">Support SCRC</a>
+                                </li>
+                                <li>
+                                    <a href="mailto:scrc@syr.edu">Email SCRC</a>
+                                </li>
+                            </ul>
+                            <div class="contact col-lg-12 col-md-12 col-sm-12 hidden-xs pull-right">
+                                <div class="search-scrc-top col-lg-9 col-md-9 col-sm-9 pull-right">
+                                    <form action="https://syracuse.summon.serialssolutions.com/search" method="get">
+                                        <label class="hidden" for="box_scrc_input">Search collections</label>
+                                        <input name="fvf" type="hidden" value="Library,Special Collections" /> 
+                                        <input class="input form-control" id="box_scrc_input" name="q" title="" type="text" value="Search SCRC collections" /> 
+                                        <button class="search_form_image_submit btn btn-theme button-website" id="box_scrc_submit" type="submit" value="go">Search</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="contact"></div>
+                        </div>
+                    </div>
+                </header>
+                <nav class="main-nav" id="main-nav-id">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button class="navbar-toggle" data-target="#navbar-collapse" data-toggle="collapse" onclick="window.scrollTo(0, 0);" type="button">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="fa fa-bars"></span>
+                            </button>
+                        </div>
+                        <div class="navbar-collapse collapse" id="navbar-collapse">
+                            <ul class="nav navbar-nav" id="navbar-nav-ul">
+                                <li class="nav-item dropdown hidden-xs hidden-sm">
+                                    <a class="dropdown-toggle" data-close-others="false" data-delay="0" data-hover="dropdown" href="https://libraries.syr.edu/scrc/collections/index.php">
+                                        <top-level-name>Collections</top-level-name>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="sub-level-li">
+                                            <a href="https://libraries.syr.edu/scrc/collections/areas/index.php">
+                                                <sub-level-name>Collection Areas</sub-level-name>
+                                            </a>
+                                        </li>
+                                        <li class="sub-level-li">
+                                            <a href="https://libraries.syr.edu/scrc/collections/highlights/index.php">
+                                                <sub-level-name>Collection Highlights</sub-level-name>
+                                            </a>
+                                        </li>
+                                        <li class="sub-level-li">
+                                            <a href="https://libraries.syr.edu/scrc/collections/digitalasset/index.php">
+                                                <sub-level-name>Digital Collections</sub-level-name>
+                                            </a>
+                                        </li>
+                                        <li class="sub-level-li">
+                                            <a href="https://libraries.syr.edu/scrc/collections/preservation/index.php">
+                                                <sub-level-name>Preservation and Conservation</sub-level-name>
+                                            </a>
+                                        </li>
+										<li class="sub-level-li">
+											<a href="https://libraries.syr.edu/scrc/collections/search.php">
+                                        <sub-level-name>Search the Collections</sub-level-name>
+										</a>
+                                <		</li>
+                                        <li class="sub-level-li">
+                                            <a href="https://libraries.syr.edu/scrc/collections/archives/index.php">
+                                                <sub-level-name>University Archives</sub-level-name>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown hidden-lg hidden-md">
+                                    <a class="dropdown-toggle" data-close-others="false" data-delay="0" data-hover="dropdown" href="https://libraries.syr.edu/scrc/collections/index.php">
+                                        <top-level-name>Collections</top-level-name>
+                                    </a>
+                                </li>
+                                <li class="nav-item dropdown hidden-xs hidden-sm">
+                                    <a class="dropdown-toggle" data-close-others="false" data-delay="0" data-hover="dropdown" href="https://libraries.syr.edu/scrc/programs/index.php">
+                                        <top-level-name>Programs</top-level-name>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="sub-level-li">
+                                            <a href="https://libraries.syr.edu/scrc/programs/brodsky.php">
+                                                <sub-level-name>Brodsky Lecture Series</sub-level-name>
+                                            </a>
+                                        </li>
+                                        <li class="sub-level-li">
+                                            <a href="https://libraries.syr.edu/scrc/programs/events.php">
+                                                <sub-level-name>Events</sub-level-name>
+                                            </a>
+                                        </li>
+                                        <li class="sub-level-li">
+                                            <a href="https://libraries.syr.edu/scrc/programs/exhibitions/index.php">
+                                                <sub-level-name>Exhibitions</sub-level-name>
+                                            </a>
+                                        </li>
+                                        <li class="sub-level-li">
+                                            <a href="https://libraries.syr.edu/scrc/programs/grants.php">
+                                                <sub-level-name>Grant Opportunities</sub-level-name>
+                                            </a>
+                                        </li>
+                                        <li class="sub-level-li">
+                                            <a href="http://soundbeat.org/">
+                                                <sub-level-name>Sound Beat</sub-level-name>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown hidden-lg hidden-md">
+                                    <a class="dropdown-toggle" data-close-others="false" data-delay="0" data-hover="dropdown" href="https://libraries.syr.edu/scrc/programs/index.php">
+                                        <top-level-name>Programs</top-level-name>
+                                    </a>
+                                </li>
+                                <li class="nav-item dropdown hidden-xs hidden-sm">
+                                    <a class="dropdown-toggle" data-close-others="false" data-delay="0" data-hover="dropdown" href="https://libraries.syr.edu/scrc/education/index.php">
+                                        <top-level-name>Education</top-level-name>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="sub-level-li">
+                                            <a href="https://libraries.syr.edu/scrc/education/groups-tours.php">
+                                                <sub-level-name>Groups and Tours</sub-level-name>
+                                            </a>
+                                        </li>
+                                        <li class="sub-level-li">
+                                            <a href="https://libraries.syr.edu/scrc/education/k-12.php">
+                                                <sub-level-name>K-12 Lesson Plans</sub-level-name>
+                                            </a>
+                                        </li>
+                                        <li class="sub-level-li">
+                                            <a href="https://libraries.syr.edu/scrc/education/spaces.php">
+                                                <sub-level-name>Learning Spaces</sub-level-name>
+                                            </a>
+                                        </li>
+                                        <li class="sub-level-li">
+                                            <a href="http://researchguides.library.syr.edu/scrcsessions/">
+                                                <sub-level-name>Session Guides</sub-level-name>
+                                            </a>
+                                        </li>
+                                        <li class="sub-level-li">
+                                            <a href="https://libraries.syr.edu/scrc/education/teach.php">
+                                                <sub-level-name>Teach Using SCRC</sub-level-name>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown hidden-lg hidden-md">
+                                    <a class="dropdown-toggle" data-close-others="false" data-delay="0" data-hover="dropdown" href="https://libraries.syr.edu/scrc/education/index.php">
+                                        <top-level-name>Education</top-level-name>
+                                    </a>
+                                </li>
+                                <li class="nav-item dropdown hidden-xs hidden-sm">
+                                    <a class="dropdown-toggle" data-close-others="false" data-delay="0" data-hover="dropdown" href="https://libraries.syr.edu/scrc/services/index.php">
+                                        <top-level-name>Services</top-level-name>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="sub-level-li">
+                                            <a href="https://libraries.syr.edu/scrc/services/duplication.php">
+                                                <sub-level-name>Duplication</sub-level-name>
+                                            </a>
+                                        </li>
+                                        <li class="sub-level-li">
+                                            <a href="https://libraries.syr.edu/scrc/services/loans.php">
+                                                <sub-level-name>Exhibition (Institutional) Loans</sub-level-name>
+                                            </a>
+                                        </li>
+                                        <li class="sub-level-li">
+                                            <a href="https://libraries.syr.edu/scrc/services/permissions.php">
+                                                <sub-level-name>Permissions</sub-level-name>
+                                            </a>
+                                        </li>
+                                        <li class="sub-level-li">
+                                            <a href="https://libraries.syr.edu/scrc/visit/index.php">
+                                                <sub-level-name>Visit</sub-level-name>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown hidden-lg hidden-md">
+                                    <a class="dropdown-toggle" data-close-others="false" data-delay="0" data-hover="dropdown" href="https://libraries.syr.edu/scrc/services/index.php">
+                                        <top-level-name>Services</top-level-name>
+                                    </a>
+                                </li>
+                                <li class="nav-item dropdown hidden-xs hidden-sm">
+                                    <a class="dropdown-toggle" data-close-others="false" data-delay="0" data-hover="dropdown" href="https://libraries.syr.edu/scrc/about/index.php">
+                                        <top-level-name>About</top-level-name>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="sub-level-li">
+                                            <a href="https://libraries.syr.edu/scrc/about/opportunities.php">
+                                                <sub-level-name>Opportunities and Internships</sub-level-name>
+                                            </a>
+                                        </li>
+                                        <li class="sub-level-li">
+                                            <a href="http://libnews.syr.edu/category/scrc/">
+                                                <sub-level-name>SCRC News</sub-level-name>
+                                            </a>
+                                        </li>
+                                        <li class="sub-level-li">
+                                            <a href="https://libraries.syr.edu/staff/index.php?skeyword=&amp;sdepartment=Special+Collections+Research+Center&amp;scategory=*">
+                                                <sub-level-name>Staff Directory</sub-level-name>
+                                            </a>
+                                        </li>
+                                        <li class="sub-level-li">
+                                            <a href="https://libraries.syr.edu/scrc/about/support.php">
+                                                <sub-level-name>Support</sub-level-name>
+                                            </a>
+                                        </li>
+                                        <li class="sub-level-li">
+                                            <a href="https://libraries.syr.edu/scrc/about/vision.php">
+                                                <sub-level-name>Vision and Mission</sub-level-name>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown hidden-lg hidden-md">
+                                    <a class="dropdown-toggle" data-close-others="false" data-delay="0" data-hover="dropdown" href="https://libraries.syr.edu/scrc/about/index.php">
+                                        <top-level-name>About</top-level-name>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="https://libraries.syr.edu/scrc/visit/index.php">
+                                        <top-level-name>Visit</top-level-name>
+                                    </a>
+                                </li>
+                                <li class="nav-item hidden-lg hidden-md hidden-sm">
+                                    <a href="https://libraries.syr.edu/index.php">
+                                        <top-level-name>Library Home</top-level-name>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="content container" id="maincontent">
+                <div class="page-wrapper">
+                    <main>
+                        <div class="hidden-xs hidden-sm page-heading-lgmdsm"><header class="page-heading clearfix"><div class="breadcrumbs breadcrumbs-left">  <ul class="dropdown-menu">
+                                <li class="sub-level-li">
+                                    <a href="https://libraries.syr.edu/scrc/collections/areas/index.php">
+                                        <sub-level-name>Collection Areas</sub-level-name>
+                                    </a>
+                                </li>
+                                <li class="sub-level-li">
+                                    <a href="https://libraries.syr.edu/scrc/collections/digitalasset/index.php">
+                                        <sub-level-name>Digital Collections</sub-level-name>
+                                    </a>
+                                </li>
+                                <li class="sub-level-li">
+                                    <a href="https://libraries.syr.edu/scrc/collections/preservation/index.php">
+                                        <sub-level-name>Preservation and Conservation</sub-level-name>
+                                    </a>
+                                </li>
+                                 <li class="sub-level-li">
+                                    <a href="https://libraries.syr.edu/scrc/collections/search.php">
+                                        <sub-level-name>Search the Collections</sub-level-name>
+                                    </a>
+                                </li>
+                                <li class="sub-level-li">
+                                    <a href="https://libraries.syr.edu/scrc/collections/archives/index.php">
+                                        <sub-level-name>University Archives</sub-level-name>
+                                    </a>
+                                </li>
+                            </ul></div>
+                                <h1 class="heading-title pull-left">SCRC</h1></header></div><div class="hidden-xs hidden-md hidden-lg page-heading-lgmdsm"><header class="page-heading clearfix"><div class="breadcrumbs breadcrumbs-left"><ul class="breadcrumbs-list"><li><a href="https://libraries.syr.edu/index.php">Home</a>/</li><li><a href="https://libraries.syr.edu/scrc/index.php">SCRC</a>/</li><li><a href="https://libraries.syr.edu/scrc/collections/index.php">Collections</a>/</li><li><a href="https://libraries.syr.edu/scrc/collections/curatorial/index.php">Curatorial Areas</a>/</li></ul></div></header></div><div class="hidden-lg hidden-md hidden-sm page-heading-xs"><header class="page-heading clearfix"><h1 class="heading-title">Finding Aids</h1><div class="breadcrumbs"><ul class="breadcrumbs-list"><li><a href="https://libraries.syr.edu/index.php">Home</a>/</li><li><a href="https://libraries.syr.edu/scrc/index.php">SCRC</a>/</li><li><a href="https://libraries.syr.edu/scrc/collections/index.php" class="current">Collections</a></li></ul></div></header></div>
+                        <div class="page-content">
+                            <div class="row page-row">
+							<!--******HERE******-->
+                                <div class="hidden-xs"><h2>Select Image: </h2> <input class= "fn" type="text" id="filename"><button id='btnImage'>LOAD</button>
+								<p>Enter full image name from file that resides in /data/temp/ptif/10/ (ex: WitchWoman.ptif)</p>
+								</div>
+                                <aside class="moo col-lg-12">
+                                    <div class="home-left-box">
+                                        <div id="viewer" class="col-lg-12"></div>
+                                        <p>
+                                        </p>
+                                        <div class="clear"></div>
+                                        <p></p>
+                                    </div>
+                                   </div>
+                    </main>
+                </div>
+            </div>
+
+            <div class="top-bar"><div class="container"><ul class="social-icons col-lg-6 col-md-6 col-sm-6 col-xs-12"><li><a href="http://twitter.com/#!/SyracuseULib"><img alt="Twitter" height="40" src="skin/img-footer-twitter.svg" width="40"></a></li><li><a href="https://www.facebook.com/pages/Syracuse-University-Library/156263494445926"><img alt="Facebook" height="40" src="skin/img-footer-facebook.svg" width="40"></a></li><li><a href="https://www.youtube.com/user/SyracuseULib"><img alt="YouTube" height="40" src="skin/img-footer-youtube.svg" width="40"></a></li><li><a href="http://www.flickr.com/photos/syracuselearningcommons/"><img alt="Flickr" height="40" src="skin/img-footer-flickr.svg" width="40"></a></li><li><a href="http://pinterest.com/SULibraryLC"><img alt="Pinterest" height="40" src="skin/img-footer-pinterest.svg" width="40"></a></li><li><a href="http://libnews.syr.edu/rss/"><img alt="News RSS Feed" height="40" src="skin/img-footer-rssfeed.svg" width="40"></a></li></ul><div class="social-icons col-lg-6 col-md-6 col-sm-6 col-xs-12"><form action="https://libraries.syr.edu/search/index.php" class="pull-right search-form" method="get">
+                            <div class="form-group"><label class="hidden" for="searchid" style="color: #ffffff; background-color: #000000;">Search this site:</label> <input class="form-control" id="searchid" name="q" placeholder="Search this site..." title="Search this site" type="text" value=""></div>
+                            <button class="btn btn-theme pull-right" type="submit">Search</button></form></div></div></div><footer class="footer"><div class="footer-content"><div class="container"><div class="row"><div class="footer-col col-lg-4 col-md-4 col-sm-4 col-xs-12"><div class="footer-col-inner"><h3><a href="https://libraries.syr.edu/index.php">Syracuse University Libraries</a></h3>
+                                    <p><a href="https://www.google.com/maps/place/222+Waverly+Ave,+Syracuse,+NY+13210/@43.039951,-76.1348057,17z/data=!3m1!4b1!4m2!3m1!1s0x89d9f39ffa21741d:0x9c0f7bbf6c3db86" title="Click to open location in Google maps">222 Waverly Avenue <span class="fa fa-map-marker">&nbsp;</span><br>
+                                            Syracuse NY 13244</a></p>
+                                    <p><a href="tel:3154432093">315.443.2093</a></p>
+                                    <p>f: 315.443.2060</p>
+                                    <p><em><a href="mailto:libref@syr.edu">libref@syr.edu</a></em></p>
+                                    <p><em><a href="http://library.syr.edu/">library.syr.edu</a></em></p></div></div><div class="footer-col col-lg-4 col-md-4 col-sm-4 col-xs-12"><div class="footer-col-inner"><h3>Quick Links</h3>
+                                    <p><a href="https://libraries.syr.edu/accessibility/index.php">Accessibility</a></p>
+                                    <p><a href="https://libraries.syr.edu/policy/privacy-policy.pdf" target="_blank" title="PDF document opens in a new window">Privacy Policy [PDF]</a></p>
+                                    <p><a href="http://www.syracuseuniversitypress.syr.edu/">Syracuse University Press</a></p>
+                                    <p><a href="https://libraries.syr.edu/scrc/archives/index.php">University Archives</a></p>
+                                    <p><a href="https://libraries.syr.edu/urm/index.php">University Records Management</a></p></div></div><div class="footer-col col-lg-4 col-md-4 col-sm-4 col-xs-12"><div class="footer-col-inner"><p><a href="http://givetosulibraries.syr.edu/"><img alt="Donate to Syracuse University Libraries - Give Now" height="59" src="skin/img-graphic-givenow.svg" width="238"></a></p>
+                                    <br>
+                                    <p><a href="http://researchguides.library.syr.edu/government"><img alt="Federal Depository Library Program" height="60" src="skin/img-graphic-fdlp.png" width="179"></a></p>
+                                    <br>
+																  <!-- BEGIN GOOGLE TRANSLATE CODE -->
+									<div id="google_translate_element"></div>
+									<p><label class="offscreen translate-label" for="goog-te-combo">Select Language</label>
+									<script type="text/javascript">// <![CDATA[
+									function googleTranslateElementInit() {
+									  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
+
+											// begin accessibility compliance, requires jQuery        
+											$('div#goog-gt-tt div.logo img').attr('alt','translate');
+											$('.goog-logo-link img').attr('alt','Google');
+											$('#google_translate_element select').attr('id','goog-te-combo');
+											// end accessibility compliance
+
+									}
+									// ]]></script>
+									<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" type="text/javascript">// <![CDATA[
+
+									// ]]></script>
+									</p></div></div></div></div></div><div class="bottom-bar"><div class="container"><div class="row"><small class="copyright col-lg-6 col-md-6 col-sm-12 col-xs-12">Copyright © 2017 Syracuse University Libraries. All Rights Reserved. </small></div></div></div></footer>
+        </div>
+        <!-- Core Javascript Bottom -->
+        <script src="js/jquery-1.12.3.min.js" type="text/javascript"></script>
+        <script src="js/bootstrap-3.3.7.min.js" type="text/javascript"></script> 
+        <script src="js/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>  
+        <script src="js/back-to-top.js" type="text/javascript"></script>
+        <script src="js/jquery.flexslider-min.js" type="text/javascript"></script>
+        <script src="js/main.js" type="text/javascript"></script> 
+ <script>
+  $('#viewer').mouseover( function() { 
+	$('.navcontainer').css('display','block'); 
+	$('.navwin').css('display','block'); 
+	$('.navbuttons').css('display','block'); 
+	});
+	 $('#viewer').mouseout( function() { 
+	$('.navcontainer').css('display','none'); 
+	$('.navwin').css('display','none'); 
+	$('.navbuttons').css('display','none'); 
+	});
+	
+	
+	$('#btnImage').click( function() {
+			loadImg= $('.fn').val();
+			//alert(loadImg);
+		//	$('.fn').val(loadImg);
+			var newImg =$('.fn').val();
+		//	var server = '/fcgi/iipsrv_scrc_004.fcgi';
+			var server = '/fcgi/iipsrv_breuer_001.fcgi';
+	//var loadImg = $('.fn').val(loadImg);
+		
+    // The *full* image path on the server. This path does *not* need to be in the web
+    // server root directory. On Windows, use Unix style forward slash paths without
+    // the "c:" prefix
+    //var image = '/data/temp/ptif/none/72671_730.ptif';
+	//var image = '/data/temp/ptif/10/2-15-Addison.ptif';
+	//alert(newImg);
+	
+	var image = '/data/temp/ptif/10/'+newImg+'&WID=800';//&CVT=jpeg';
+    // Copyright or information message
+    var credit = '&copy; copyright or information message';
+
+    // Create our iipmooviewer object
+    new IIPMooViewer( "viewer", {
+	server: server,
+	image: image,
+	showNavWindow: true,
+	navWinSize: .1,
+	//viewport: {resolution:3, x:1.0, y:1.0, rotation:0},
+	winResize: true,
+	credit: credit
+    });
+	});
+
+  </script>
+  <script>
+  
+	$('.fn').on('input', function(){
+		$('#viewer').empty();
+	});
+	
+
+  </script>
+        <!-- Local Javascript Bottom -->
+        <script type="text/javascript">
+            (function () {
+                var x = document.createElement("script");
+                x.type = "text/javascript";
+                x.async = true;
+                x.src = (document.location.protocol === "https:" ? "https://" : "http://") + "libraryh3lp.com/js/libraryh3lp.js?multi";
+                var y = document.getElementsByTagName("script")[0];
+                y.parentNode.insertBefore(x, y);
+            })();
+        </script>
+        <script src="skin/local.js" type="text/javascript"></script>
+
+
+        <!-- REPLACE WITH NEW GA CODE
+        <script type="text/javascript">
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+                /*  Normal GA Code: Universal Analytics Example */
+                ga('create', 'UA-3508972-6', 'auto');
+                ga('require', 'linkid', 'linkid.js');
+                ga('require', 'displayfeatures');
+                ga('send', 'pageview');
+                ga('create', 'UA-32597848-1', 'auto', {'name': 'rollup'});
+                ga('rollup.require', 'displayfeatures');
+                ga('rollup.require', 'linkid', 'linkid.js');
+                ga('rollup.send', 'pageview');
+        </script>
+        -->
+
+        <div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="skin/translate_24dp.png" width="20" height="20" alt="translate"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Original text</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Contribute a better translation</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div><div id="topcontrol" title="Scroll Back to Top" style="position: fixed; bottom: 5px; right: 5px; opacity: 0; cursor: pointer;"><i class="fa fa-angle-up"></i></div><div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div></body></html>

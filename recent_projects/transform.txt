@@ -1,0 +1,17 @@
+<?php
+
+echo 'BIBID:'. $_POST["bibid"];
+$url = "http://summit.syr.edu:7014/vxws/GetHoldingsService?bibId=".$_POST["bibid"];
+$xml = new DOMDocument();
+$xml->load($url); 
+
+$xsl = new DOMDocument;
+$xsl->load('marc_display.xsl');
+ 
+$proc = new XSLTProcessor();
+$proc->importStyleSheet($xsl);
+ 
+echo $proc->transformToXML($xml);
+
+
+?>
