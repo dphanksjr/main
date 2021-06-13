@@ -25,7 +25,13 @@ class SceneTitle extends Phaser.Scene {
             fontSize: game.config.width / 8,
             color: "#000000"
         });
-        this.titleText.x=game.config.width-this.titleText.displayWidth;
+        this.titleText.setOrigin(0.5,0.5);
+        this.aGrid.placeAtIndex(16,this.titleText);
+//        this.titleText = this.add.text(0, 0, mt.model.gameTitle, {
+//            fontSize: game.config.width / 10,
+//            color: "#000000"
+//        });
+ //       this.titleText.x=game.config.width-this.titleText.displayWidth/.5;
         //
         //
         this.btnStart = new TextButton({

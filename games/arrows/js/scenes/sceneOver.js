@@ -22,7 +22,8 @@ class SceneOver extends Phaser.Scene {
             fontSize: game.config.width / 8,
             color: "#000000"
         });
-        this.titleText.x=game.config.width-this.titleText.displayWidth;
+        this.titleText.setOrigin(0.5,0.5);
+        this.aGrid.placeAtIndex(16,this.titleText);
         //
         //
         this.btnStart = new TextButton({
